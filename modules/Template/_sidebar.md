@@ -1,7 +1,9 @@
-<!-- docs/_sidebar.md -->
-<h3>Topics: </h3>
+<h3> How to Topics: </h3>
 
 * [Summary]($/_main.md)
-* [Setup the C Compiler Toolchain]($/c_compiler_toolchain.md)
-* [Create a VSC Project]($/c_vsc.md)
-* [Using Makefile to manage software-build]($/c_make_file.md)
+* [Add a module]($/01_add_mod.md)
+* [Create a module]($/02_create_mod.md)
+* [Markdown syntax]($/03_markdown.md)
+* [Math syntax]($/04_math.md)
+* [Diagramming syntax]($/05_uml.md)
+* [Codeblocks syntax]($/06_codeblocks.md)

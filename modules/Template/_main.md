@@ -1,49 +1,106 @@
-# Terminology
-|  Terms   | Their meaning                                                                     |
-| :------: | :-------------------------------------------------------------------------------- |
-|   MCU    | **M**icro **C**ontroller **U**nit,                                                |
-| Debugger | A tool to examine the cause of error in computer program testing and maintenance. |
+# Summary
 
-# Development environment for embedded
+This ebook app is designed by Mr. David Chen, who lecturers at the Department of Electrical and Communication Engineering, to implement a more efficient way to distribute course content in environments where network connectivity is deficient.
 
-`{'mod':'speak'}` There is no fit-all-size tool for handling all processes of designing embedded systems because it is a combination of computer **hardware** and **software** intended to interact with the physical world. Tools such as SPICE or Proteus may assist the testing and development of the systems' software. However, they cannot facilitate the testing of the interactions between the system and the physical world. In such a context, the two realities in which an embedded system must function are:
+The App provides the following set of functions to address the challanges of implementing online teaching within the campus:
 
-1. The software aspect, where instruction data are loaded onto the MCU and perform the processing the "input" and "output" of digitalised data.
-2. The hardware aspect is where the embedded system shall sense and react to the dynamics of the physical environment. The stimuli of these dynamics may be created by their actions or from the external physical environment.
+## Speech-synthesis services
 
-In general, it is more difficult to build software for embedded systems than other software that runs on a PC. The testing of embedded system software involves the state of the physical world for which the system interacts. Unlike the regime of pure software development where errors can be paused and examined precisely by using a debugger, there is no pause or replay button for objects that live in the physical world. For this reason, a developer of embedded systems must learns to use multiple tools for each aspect of software development and physical world simulations.
+High-quality **speech-synthesis services** to alleviate the need for video recording lectures.
+    
+Video files require hundreds of **Megabytes** to store. On the other hand, standard text files occupy far lesser space (within only tens of **Kilobytes**). Also, a wholesome bundled module, including linked images, vector graphics diagrams, and parametric animation, can be compiled to less than one-tenth of the size of video lecture files. This way both the student and lecturer will waste less time on uploading and downloading of course content, while lecture can be carried out through the synthetic voice reader. Hear an example below:
 
-## Reasons for using C?
+`{'mod':'speak'}` "The PNG University of Technology, is the best university in Papua New Guinea"
 
-`{'mod':'speak'}` C is a general-purpose computer programming language which can be used in wide variety of applications. Operating systems, application software for computers ranging from supercomputers to embedded systems are written in C. While C has been a versatile programming language, it has been the most suitable one when it comes to Embedded Systems. In spite of being invented more than 30 years ago, when it comes to Embedded Systems, there is no other programming language which even comes close to C and here are the some reasons why:
+> `{'mod':'tag','type':'tip'}` 
+> 
+> You may also select different voices from the **Narrator** drop-down menu at the top left corner of the screen. These functions may improve learning as the learning no longer need to put up with delicate accents or low speech volumes.
 
-### 1. Processor Independent
-`{'mod':'speak'}` C language is not specific to any microprocessor nor micro-controller or any system. It can work on various hardware configuration. C doesn’t require same set of hardware to run a program. C language is platform independent whereas the applications written in C are not. Hence the concept “Write once Compile anywhere” came.
+## Math equation rendering
 
-For example we can compile and execute a C program written for one hardware in another hardware with little to no change. If there is a change required, it is only in terms of platform (Operating System) specific functions and system calls. This is said to be machine independent. While writing a program in C, user doesn’t have to know the underlying hardware specific details of the machine, since the compiler takes care of it. When developers compile a C program for a particular hardware, respective assembly code is generated. It is then linked with libraries (static and dynamic) to give an executable file. It should be noted that only C code is machine independent, the executable file generated is Machine as well as Platform (OS) dependent. So, whenever a code written in C must be used in another machine, it should be compiled and executed again.
+ASCIIMath and Latex-syntax math formulae are rendered to produce a clean and visually appealing depiction of math equations. They can either draw in sections like this:
+    
+```{'mod':'math','tex':true}
+\begin{multline}
+\begin{split}
+x & = {-b \pm \sqrt{b^2-4ac} \over 2a}\\
+-{x \over b} & = {1 \over 2ab} \pm {\sqrt{b^2-4ac} \over 2a}\\
+-{x \over b} - {1 \over 2ab} & = \pm {\sqrt{b^2-4ac} \over 2a}\\
+\end{split}
+\end{multline}
+```
 
-### 2. Portability
+## built-in syntax highligthing
 
-`{'mod':'speak'}` Portability of a language is mainly important when an application program must be moved to other operating systems. Code developed in C is more portable and user can compile it on other platforms with least modifications. C code is efficient, easy to understand, maintain and debug. A program can be written in one machine and can be run on other machines.
+Provide syntax highlighting for different programming languages. Below is an example for displaying javascript code with different sections of the code highlighted:
 
-### 3. Performance
+```{'mod':'code','lang':'javascript','highlight':'1,3-5,7-9'}
+window.gCodebockHandlers = {
+    "math": function(code, configJSON, isInline)
+    {
+        vRenderedMath = MathJax.tex2svg(code);
+        vContainer = document.createElement("div");
+        vContainer.appendChild(isInline ? vRenderedMath.firstChild : vRenderedMath);
+        return vContainer.innerHTML;
+    },
+    "code": function(code, configJSON, isInline)
+    {
+        vRenderedText = Prism.highlight(code, Prism.languages.javascript, configJSON.lang);
+        return isInline ? "<code>"+vRenderedText+"</code>" : "<pre class=\"language-markup\">"+vRenderedText+"</pre>"
+    }
+}
+```
 
-`{'mod':'speak'}` C code gets compiled into raw binary executable which can be directly loaded into memory and executed. C provides optimized machine instructions for the given input, which increases the performance of the embedded system. Most of the high-level languages rely on libraries, hence they require more memory which is a major challenge in embedded systems.
+## UML Diagramming via *Mermaid.js*
 
-For example, In Java, we need JVM (Java Virtual Machine) in addition to the jar files (Executable) which adds additional overhead in terms of performance and memory consumption. Newer languages provide support for garbage collection, dynamic typing etc., which degrades their performance. Since C does none of that, there is little to no overhead.
+Mermaid is a tool that generates diagrams and charts, from markdown-inspired text definitions
 
-### 4. Bit Manipulation
+This allows for simplified generation and updating of even the most complex diagrams and charts, while avoiding time-damanding and heavy tools like visio.
 
-`{'mod':'speak'}` C is more flexible, structured language that provides “low level bit wise data manipulation” using the bit-wise operators. Using bit-wise operators, one could play with available bits, which comes handy when it comes to Embedded Systems (e.g. Handling registers).
+mermaid, is a simple markdown-inspired script language for generating charts from text-definitions, via javascript. As such, using it cuts the times it takes to create, modify and render diagrams.
 
-### 5. Memory Management
+### Example: Flowcharts
 
-`{'mod':'speak'}` It provides direct memory control without sacrificing benefits of high-level languages. We can directly access memory using pointers and perform various operations using them. When memory requirement is not known, we can allocate it dynamically and when memory requirement is known, we can allocate the memory statically. This is one of the main reasons for why is C the most preferred language for embedded systems.
+```{'mod':'uml'}
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
+```
 
-## What will learn in this module:
+### Example: Sequence Diagram
 
-`{'mod':'speak'}` In this module you will learn about:
+```{'mod':'uml'}
+sequenceDiagram
+    autonumber
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+```
 
-1. Setup the GCC C Compiler for the PC, we will need this tool to learn about C programming, and later integrate our software with the AVR simulator
-2. Create a Visual Studio Code C Project folder.
-3. Learn to use the Makefile too, which comes with the GCC tool chain
+For more information regarding the use of diagram syntaxes please refer to [Mermaid-js](https://mermaid-js.github.io/)
+
+## Embedded bitmaps Images
+
+For all other pictorial materials, they can be saved as `'.jpg'`, or `'.png'` format as it is shown below:
+
+`{'mod':'img','url':'$/_res/ch1-img-mod-example.jpg'}`
+
+## Need more functions?
+Undoubtedly, once you are accustomed to this tool, later discoveries of functional deficiencies may occur and wish the author to address them. To do so, please contact david.chen@pnguot.ac.pg.
+

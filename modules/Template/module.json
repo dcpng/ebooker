@@ -1,6 +1,7 @@
 {
     "summary": {
-        "title": "1. Setup Development Environment",
-        "ui-visible": true
+        "ui-group": "Information",
+        "ui-visible": true,
+        "title": "How to use this application?"
     }
 }
