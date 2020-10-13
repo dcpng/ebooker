@@ -9,8 +9,8 @@ The app currently only runs on windows and it depends on the [Microsoft Edge Web
 Once completed, just download all the files from this repository's zip via the <kbd>Code</kbd> button and unpack it to a directory of your choice to run.
 
 # Todo list
-[] Add TSS for maths equations
-[] Add Offline Dictionary
-[] Add Presentation function
-[] Add Decentrialise form
-[] Add Content licensing functions.
+- Add TSS for maths equations
+- Add Offline Dictionary
+- Add Presentation function
+- Add Decentrialise form
+- Add Content licensing functions.
