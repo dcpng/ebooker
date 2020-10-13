@@ -1,30 +1,16 @@
-# 1.1 Sarah's Life
+# Ebooker Version 1.0.4
 
-`{'mod':'speak'}` This book is a diary of Sarah's Smith's life during 1949 in PNG.
+Ebooker is a content distribution platform Created by David Chen, at the PNG University of Technology to solve the problem of conducting lecture session offline. Its uses an extended version of Mark-down and TTS technology that allow educators build content that can be read itself.
 
-Sarah was born in Germany where her father was a missionary of the Catholic faith.
+# Installation
 
-## 1.1 Sarah's Life
+The app currently only runs on windows and it depends on the [Microsoft Edge WebView2 component](https://developer.microsoft.com/en-us/microsoft-edge/webview2/). You need to download and install it for ebooker-app to run.
 
-### 1.1 Sarah's Life
+Once completed, just download all the files from this repository's zip via the <kbd>Code</kbd> button and unpack it to a directory of your choice to run.
 
-`{'mod':'speak'}` The **Segment object** represents the points of a path through which
-its Curve objects pass. The segments of a path can be accessed through its 
-path.segments array.
-
-> This is a quote block
-> Some more text
-> > Some more text
-> > Some more text
-> Some more text
-> Some more text
-
-
-1. item 1
-	- item 1.1
-	- item 1.2
-	- item 1.3
-1. item 2
-1. item 3
-1. item 3
-1. item 3
+# Todo list
+[] Add TSS for maths equations
+[] Add Offline Dictionary
+[] Add Presentation function
+[] Add Decentrialise form
+[] Add Content licensing functions.
